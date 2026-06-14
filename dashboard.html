@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <h2>📚 Study Streak</h2>
+
+        <div>
+
+            <a href="/dashboard">Dashboard</a>
+
+            <a href="/daily-quiz">Quiz</a>
+
+            <a href="/leaderboard">Leaderboard</a>
+
+            <a href="/timer">Timer</a>
+
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <div class="container">
+
+        <!-- =========================
+             TITLE
+        ========================== -->
+
+        <h1>Study Dashboard</h1>
+
+        <!-- =========================
+             MOTIVATION CARD
+        ========================== -->
+
+        <div class="session-card">
+
+            <h3>💡 Daily Motivation</h3>
+
+            <p>{{ quote }}</p>
+
+        </div>
+
+        <br>
+
+        <!-- =========================
+             USER STATS
+        ========================== -->
+
+        <div class="session-card">
+
+            <h2>🔥 Current Streak: {{ user.streak }}</h2>
+
+            <h2>🏅 Badge: {{ user.badge }}</h2>
+
+            <h2>⭐ XP: {{ user.xp }}</h2>
+
+            <h2>🎖️ Level: {{ user.level }}</h2>
+
+            <h2>
+                ⏱️ Total Study Time:
+                {{ total_time }} minutes
+            </h2>
+
+            <h2>
+                🎯 Daily Goal:
+                {{ total_time }} / {{ user.daily_goal }} minutes
+            </h2>
+
+        </div>
+
+        <br>
+
+        <!-- =========================
+             ACTION BUTTONS
+        ========================== -->
+
+        <div class="session-card">
+
+            <a href="/study">Add Study Session</a>
+
+            <br><br>
+
+            <a href="/set-goal">Set Daily Goal</a>
+
+            <br><br>
+
+            <a href="/daily-quiz">Take Daily Quiz</a>
+
+        </div>
+
+        <br>
+
+        <!-- =========================
+             ANALYTICS
+        ========================== -->
+
+        <h2>📊 Study Analytics</h2>
+
+        <canvas id="studyChart"></canvas>
+
+        <br><br>
+
+        <!-- =========================
+             STUDY HISTORY
+        ========================== -->
+
+        <h2>📚 Study History</h2>
+
+        {% for session in sessions %}
+
+            <div class="session-card">
+
+                <p>
+
+                    <strong>Subject:</strong>
+                    {{ session.subject }}
+
+                </p>
+
+                <p>
+
+                    <strong>Duration:</strong>
+                    {{ session.duration }} minutes
+
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- =========================
+         CHART JS
+    ========================== -->
+
+    <script>
+
+        const ctx = document.getElementById('studyChart');
+
+        new Chart(ctx, {
+
+            type: 'bar',
+
+            data: {
+
+                labels: {{ subjects | tojson }},
+
+                datasets: [{
+
+                    label: 'Study Duration (minutes)',
+
+                    data: {{ durations | tojson }}
+
+                }]
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

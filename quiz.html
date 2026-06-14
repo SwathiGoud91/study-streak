@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Daily Quiz</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🧩 Daily Quiz</h1>
+
+        <h3>{{ question.question }}</h3>
+
+        <form method="POST">
+
+            {% for option in question.options %}
+
+                <input
+                    type="radio"
+                    name="answer"
+                    value="{{ option }}"
+                    required
+                >
+
+                {{ option }}
+
+                <br><br>
+
+            {% endfor %}
+            <input
+    type="hidden"
+    name="correct_answer"
+    value="{{ question.answer }}"
+>
+
+            <button type="submit">Submit Answer</button>
+
+        </form>
+
+        <br>
+
+        <h3>{{ message }}</h3>
+
+    </div>
+
+</body>
+
+</html>

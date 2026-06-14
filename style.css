@@ -1,0 +1,196 @@
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    background: #4a90e2;
+
+    color: white;
+
+    padding: 15px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.navbar a {
+
+    color: white;
+
+    text-decoration: none;
+
+    margin-left: 20px;
+
+    font-weight: bold;
+}
+
+.navbar a:hover {
+
+    text-decoration: underline;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 85%;
+
+    margin: auto;
+
+    padding: 20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.session-card {
+
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+a,
+button {
+
+    background: #4a90e2;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+a:hover,
+button:hover {
+
+    opacity: 0.9;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+
+    color: #333;
+}
+
+h2 {
+
+    color: #444;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 10px;
+
+    margin-bottom: 15px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ccc;
+}
+
+/* =========================
+   CHART
+========================= */
+
+canvas {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+
+    background: #121212;
+
+    color: white;
+}
+
+body.dark-mode .container {
+
+    background: transparent;
+
+    color: white;
+}
+
+body.dark-mode .session-card {
+
+    background: #1e1e1e;
+
+    color: white;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+
+    color: white;
+}
+
+body.dark-mode canvas {
+
+    background: #1e1e1e;
+}
+
+body.dark-mode .navbar {
+
+    background: #222;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Set Goal</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎯 Set Daily Goal</h1>
+
+        <form method="POST">
+
+            <input
+                type="number"
+                name="goal"
+                placeholder="Enter daily goal in minutes"
+                required
+            >
+
+            <button type="submit">Save Goal</button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

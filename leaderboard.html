@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Leaderboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🏆 Leaderboard</h1>
+
+        <hr>
+
+        {% for user in users %}
+
+            <div class="session-card">
+
+                <h3>{{ loop.index }}. {{ user.name }}</h3>
+
+                <p>🔥 Streak: {{ user.streak }}</p>
+                <p>🏅 Badge: {{ user.badge }}</p>
+                <p>⭐ XP: {{ user.xp }}</p>
+
+                <p>🎖️ Level: {{ user.level }}</p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>

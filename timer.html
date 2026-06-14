@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Pomodoro Timer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>⏳ Pomodoro Timer</h1>
+
+        <h2 id="timer">25:00</h2>
+
+        <button onclick="startTimer()">Start</button>
+
+        <button onclick="resetTimer()">Reset</button>
+
+    </div>
+
+    <script>
+
+        let timeLeft = 1500;
+
+        let timerRunning = false;
+
+        let interval;
+
+        function updateDisplay() {
+
+            let minutes = Math.floor(timeLeft / 60);
+
+            let seconds = timeLeft % 60;
+
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            document.getElementById('timer').innerText =
+                minutes + ':' + seconds;
+        }
+
+        function startTimer() {
+
+            if (timerRunning) return;
+
+            timerRunning = true;
+
+            interval = setInterval(() => {
+
+                if (timeLeft > 0) {
+
+                    timeLeft--;
+
+                    updateDisplay();
+
+                } else {
+
+                    clearInterval(interval);
+
+                    alert("Pomodoro Session Completed!");
+
+                }
+
+            }, 1000);
+        }
+
+        function resetTimer() {
+
+            clearInterval(interval);
+
+            timeLeft = 1500;
+
+            timerRunning = false;
+
+            updateDisplay();
+        }
+
+    </script>
+
+</body>
+
+</html>
