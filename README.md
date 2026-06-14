@@ -17,20 +17,5 @@ Study Streak is a web-based gamified productivity platform designed to help stud
 Frontend: HTML, CSS, JavaScript, Bootstrap
 Backend: Python (Flask)
 Database: SQLite
-Hosting: Replit / Render (optional)
-📂 Project Structure
-study-streak/
-│
-├── app.py
-├── requirements.txt
-├── Procfile
-├── /templates
-│     ├── login.html
-│     ├── register.html
-│     ├── dashboard.html
-│
-├── /static
-│     ├── style.css
-│     ├── script.js
-│
-└── database.db
+
+
